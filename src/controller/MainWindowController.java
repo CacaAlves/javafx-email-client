@@ -5,10 +5,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TreeView;
 import javafx.scene.web.WebView;
+import view.EmailManager;
+import view.ViewFactory;
 
-public class MainWindowController {
+public class MainWindowController extends BaseController {
 
-    @FXML
+    public MainWindowController(EmailManager emailManager, ViewFactory viewFactory, String fxmlName) {
+		super(emailManager, viewFactory, fxmlName);
+	}
+
+	@FXML
     private TreeView<?> emailsTreeView;
 
     @FXML
@@ -19,7 +25,12 @@ public class MainWindowController {
 
     @FXML
     void optionsAction(ActionEvent event) {
-    	System.out.println("options");
+    	viewFactory.showOptionsWindow();
+    }
+    
+    @FXML
+    void addAccountAction(ActionEvent event) {
+    	viewFactory.showLoginWindow();
     }
 
 }
