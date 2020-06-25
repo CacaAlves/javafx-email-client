@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import controller.BaseController;
+import controller.ComposeMessageWindowController;
 import controller.LoginWindowController;
 import controller.MainWindowController;
 import controller.OptionsWindowController;
@@ -58,6 +59,11 @@ public class ViewFactory {
 
 	public void showOptionsWindow() {
 		BaseController controller = new OptionsWindowController(emailManager, this, "OptionsWindow.fxml");
+		initializeStage(controller);
+	}
+	
+	public void showComposeMessageWindow() {
+		BaseController controller = new ComposeMessageWindowController(emailManager, this, "ComposeMessageWindow.fxml");
 		initializeStage(controller);
 	}
 
